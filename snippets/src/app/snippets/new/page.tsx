@@ -1,4 +1,4 @@
-// import { db } from "@/db";
+import { db } from "@/db";
 import { redirect } from "next/navigation";
 // import { db } from "../../../db";
 
@@ -12,13 +12,13 @@ export default function SnippetCreatePage() {
     const code = formData.get("code") as string;
 
     // Create a new record in the database
-    // const snippet = await db.snippet.create({
-    //   data: {
-    //     title,
-    //     code,
-    //   },
-    // });
-    // console.log(snippet);
+    const snippet = await db.snippet.create({
+      data: {
+        title,
+        code,
+      },
+    });
+    console.log(snippet);
     //Redirect the user back to roote route
     redirect("/");
   }
